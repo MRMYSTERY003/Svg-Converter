@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
+
+body {
+    background-color: #261C2C;
+    font-family: 'Lato';
+    font-weight: 600;
+    color: #0f0f0f;
+    overflow-x: hidden;
+}
+
+.top{
+    display: flex;
+    justify-content: center;
+}
+
+.progressregion {
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+span {
+    color: #db162f;
+}
+
+.prop {
+    color: #261C2C;
+    font-size: 0.8rem;
+}
+
+.title-head {
+    color: rgba(248, 248, 243, 0.87);
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    padding-bottom: 50px;
+    padding-top: 50px;
+}
+
+.logo{
+    display: flex;
+    justify-content: space-around;
+    
+}
+
+#banner{
+    width: 197px;
+    height: auto;
+    padding: 0px;
+    margin: 0px;
+}
+
+
+
+.option-container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.container-1 {
+    font-size: 1rem;
+    margin: 3px;
+    background-color: #261c2ca6;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.slider {
+    background-color: #261C2C;
+}
+
+.button {
+    cursor: pointer;
+    border-radius: 5px;
+    border: 1px solid rgba(248, 248, 243, 0.87);
+    color: white;
+    background-color: rgba(38, 28, 44, 0.5);
+    padding: 10px;
+    margin: 5px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-around;
+}
+
+#imageSelect{
+    color: #0e7474;
+}
+
+#options {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    margin-bottom: 30px;
+    margin-left: 50px;
+    width: 400px;
+    max-height: 640px;
+    background-color: rgba(235, 203, 244, 0.7);
+    padding: 30px;
+    border-radius: 10px;
+
+}
+
+.droptext {
+    background-color: blueviolet;
+}
+
+#droptext p{
+    color: rgba(248, 248, 243, 0.87);
+}
+
+#droptext {
+    border: 2px dashed rgb(250, 249, 249);
+}
+
+#droptext.hovering {
+    border: 2px dashed #fff;
+}
+
+#canvas-container {
+    height: 640px;
+    width: 500px;
+    background-color: none;
+}
+
+#svg {
+    height: inherit;
+    width: auto;
+
+}
+
+#svg,
+#frame {
+    position: relative;
+    margin-bottom: 50px;
+}
+
+#svg>path:hover {
+    stroke: #ff0;
+}
+
+#droptext {
+    height: 100%;
+    text-align: center;
+}
+
+
+
+@media screen and (max-width: 767px) {
+
+    .container {
+        flex-direction: column;
+    }
+
+    #options {
+        margin-top: 50px;
+    }
+
+    #droptext {
+        margin: 50px;
+        width: 450px;
+    }
+
+    #drop{
+        margin: 10px;
+        height: 700px;
+    }
+
+
+    .empty{
+        height: inherit;
+    }
+
+
+}

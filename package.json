@@ -1,0 +1,29 @@
+{
+  "name": "vtracer-app",
+  "homepage": "https://github.com/MRMYSTERY003/Svg-Converter/",
+  "version": "0.1.0",
+  "description": "VTracer Webapp",
+  "author": "MrMystery<sriramanand3@gmail.com>",
+  "license": "proprietary",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server",
+    "predeploy": "npm run build", 
+    "deploy": "gh-pages -d dist",
+    "build": "webpack"
+  },
+  "keywords": [
+    "rust",
+    "wasm"
+  ],
+  "dependencies": {
+    "gh-pages": "^4.0.0",
+    "vtracer": "file:../pkg",
+    "webpack": "^4.41.5"
+  },
+  "devDependencies": {
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.1"
+  }
+}
