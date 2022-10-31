@@ -1,13 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Poppins:wght@100;200;300;400;500&display=swap');
 .example{
-    color: white;
+    color: black;
 
 }
 
-h3, h2{
+h2,h3{
     text-align: center;
 }
-
 
 .box {
     display: flex;
@@ -85,4 +84,53 @@ width: 25px;
 
 #done-p{
     visibility: hidden;
+}
+
+.example-container{
+    display: none;
+    visibility: hidden;
+}
+
+@media screen and (max-width: 467px) {
+
+    .example{
+        position:relative;
+        width: 400px;
+        border-radius: 10px;
+        background-color: rgba(235, 203, 244, 0.7);
+        margin: 0px;
+        padding: 10px;
+    }
+
+
+    .example-container{
+        display: flex;
+        justify-content: center;
+        padding-left: 30px;
+        margin: 0px;
+        visibility: visible;
+    }
+
+    .example-container-phone{
+        display: none;
+        visibility: hidden;
+    }
+
+    .code-text{
+        font-size: 0.7rem;
+        width: 250px;
+    }
+
+    .sample-box{
+        width: auto;
+    }
+
+    .box{
+        width: 320px;
+        padding: 10px;
+    }
+
+
+
+
 }

@@ -209,7 +209,8 @@ var imageSelect = document.getElementById('imageSelect'),
 imageInput = document.getElementById('imageInput');  
 imageSelect.addEventListener('click', function (e) {
     imageInput.click();
-    e.preventDefault();
+    console.log("clickd");
+ 
 });
 
 imageInput.addEventListener('change', function (e) {

@@ -6,6 +6,7 @@ body {
     font-weight: 600;
     color: #0f0f0f;
     overflow-x: hidden;
+    width: auto;
 }
 
 .top{
@@ -35,6 +36,8 @@ span {
     padding-bottom: 50px;
     padding-top: 50px;
 }
+
+
 
 .logo{
     display: flex;
@@ -127,13 +130,14 @@ span {
 #svg {
     height: inherit;
     width: auto;
-
+    padding: 10px;
 }
 
 #svg,
 #frame {
     position: relative;
-    margin-bottom: 50px;
+    margin: 50px;
+
 }
 
 #svg>path:hover {
@@ -147,7 +151,12 @@ span {
 
 
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 467px) {
+
+    body{
+        padding-left: 100px;
+
+    }
 
     .container {
         flex-direction: column;
@@ -171,6 +180,18 @@ span {
     .empty{
         height: inherit;
     }
+
+    .example{
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
+    }
+
+    #frame{
+        display: none;
+    }
+
+
 
 
 }

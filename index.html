@@ -3,8 +3,9 @@
     <head>
         <meta charset="utf-8">
         <title>Sketchpy</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="apple-touch-icon" sizes="192x192" href="./imgs/logo.png">
-        <link rel="icon" type="image/png" sizes="192x192"  href="./imgs/logo.png">
+        <link rel="icon" type="image/x-icon" sizes="192x192"  href="./imgs/logo.png">
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="code.css">
 
@@ -13,201 +14,231 @@
 
     <body>
 
-
-        <div class="title-head">
-            <h2>Sketchpy <span>SVG</span> Converter</h2>
-            <div class="logo">
-                <img src="./imgs/logo banner.png" id = 'banner' alt="">
-            </div>
-        </div>
-
-        <input type="file" id="imageInput" accept="image/*" style="display: none;">
-        <div class = 'top'>
-            <div id="progressregion" style="display: none;">
-                <progress id="progressbar" value="0" max="100" style="width: 98%;"></progress>
-            </div>
-            <div class="container">
-                    <div id="drop">
-                        <div id="canvas-container">
-                            <div id="droptext">
-                                <p>Drag an image here or <a href="#" id="imageSelect">Select file</a></p>
-                            </div>
-                            <canvas id="frame"></canvas>
-                            <svg id="svg" version="1.1" xmlns="http://www.w3.org/2000/svg"></svg>
-                        </div>
-                    </div>
-                <div id="options">
-                    <div>
-                        <a class="button" id="export">Download as SVG</a>    
-                    </div>
-
-                    <p></p>
-                    
-                    <div class="option-container">
-                        <div class="options-left">
-                            <div>
-                                <div title="Algorithm for segmentation and grouping of pixel clusters">
-                                    Clustering
-                                </div>
-                            </div>
         
-                            <div>
-                                <div>
-                                    <button class="button" id="clustering-binary" title="Black & White (Binary Image)">B/W</button>
-                                    <button class="button" id="clustering-color" title="True Color Image">Color</button>
+            <div class="title-head">
+                <h2>Sketchpy <span>SVG</span> Converter</h2>
+                <div class="logo">
+                    <img src="./imgs/logo banner.png" id = 'banner' alt="">
+                </div>
+            </div>
+
+            <input type="file" id="imageInput" accept="image/*" style="display: none;">
+            <div class = 'top'>
+                <div id="progressregion" style="display: none;">
+                    <progress id="progressbar" value="0" max="100" style="width: 98%;"></progress>
+                </div>
+                <div class="container">
+                        <div id="drop">
+                            <div id="canvas-container">
+                                <div id="droptext">
+                                    <p>Drag an image here or <a href="#" id="imageSelect">Select file</a></p>
                                 </div>
-                            </div>
-        
-                            <div>
-                                <div>
-                                    <button class="button" id="clustering-cutout" title="Shapes disjoint with others">Cutout</button>
-                                    <button class="button" id="clustering-stacked" title="Stack shapes on top of another">Stacked</button>
-                                </div>
-                            </div>
-                            <div class="container-1">
-                                <div>
-                                    <div title="Discard patches small than X px in size">
-                                        Filter Speckle <span class="prop">(Cleaner)</span>
-                                    </div>
-                                </div>
-                                <div id="filterspecklevalue">
-                                    4
-                                </div>
-                                <div>
-                                    <input id="filterspeckle" type="range" min="1" max="16" step="1" value="4">
-                                </div>
-                            </div>
-                            <div class="container-1">
-                                <div class="clustering-color-options">
-                                    <div title="Number of significant bits to use in a RGB channel">
-                                        Color Precision <span class="prop">(More accurate)</span>
-                                    </div>
-                                </div>
-                                <div id="colorprecisionvalue" class="clustering-color-options">
-                                    6
-                                </div>
-                                <div class="clustering-color-options">
-                                    <input id="colorprecision" type="range" min="1" max="8" step="1" value="6">
-                                </div>
-                            </div>
-                            <div class="container-1">
-                                <div class="clustering-color-options">
-                                    <div title="Color difference between gradient layers">
-                                        Gradient Step <span class="prop">(Less layers)</span>
-                                    </div>
-                                </div>
-                                <div id="layerdifferencevalue" class="clustering-color-options">
-                                    16
-                                </div>
-                                <div class="clustering-color-options">
-                                    <input id="layerdifference" type="range" min="0" max="255" step="1" value="16">
-                                </div>
+                                <canvas id="frame"></canvas>
+                                <svg id="svg" version="1.1" xmlns="http://www.w3.org/2000/svg"></svg>
                             </div>
                         </div>
-    
-                        <div class="options-right">
-                            <div>
-                                <div title="Algorithm for converting clusters to shapes">
-                                    Curve Fitting
-                                </div>
-                            </div>
-        
-                            <div>
+                    <div id="options">
+                        <div>
+                            <a class="button" id="export">Download as SVG</a>    
+                        </div>
+
+                        <p></p>
+                        
+                        <div class="option-container">
+                            <div class="options-left">
                                 <div>
-                                    <button class="button" id="none" title="Exact cluster boundary">Pixel</button>
-                                    <button class="button" id="polygon" title="Simplify to Polygon">Polygon</button>
-                                    <button class="button" id="spline" class="selected" title="Smooth and Curve-fit">Spline</button>
-                                </div>
-                            </div>
-                            
-                            <div class="container-1">
-                                <div class="spline-options">
-                                    <div title="Minimum Momentary Angle (in degrees) to be considered a corner (to be kept after smoothing)">
-                                        Corner Threshold <span class="prop">(Smoother)</span>
+                                    <div title="Algorithm for segmentation and grouping of pixel clusters">
+                                        Clustering
                                     </div>
                                 </div>
-                                <div id="cornervalue" class="spline-options">
-                                    60
-                                </div>
-                                <div class="spline-options">
-                                    <input id="corner" type="range" min="0" max="180" step="1" value="60">
-                                </div>
-                            </div>
-                            <div class="container-1">
-                                <div class="spline-options">
-                                    <div title="Perform Iterative Subdivide Smooth until all segments are shorter than this length">
-                                        Segment Length <span class="prop">(More coarse)</span>
+            
+                                <div>
+                                    <div>
+                                        <button class="button" id="clustering-binary" title="Black & White (Binary Image)">B/W</button>
+                                        <button class="button" id="clustering-color" title="True Color Image">Color</button>
                                     </div>
                                 </div>
-                                <div id="lengthvalue" class="spline-options">
-                                    4
-                                </div>
-                                <div class="spline-options">
-                                    <input id="length" type="range" min="3.5" max="10" step="0.5" value="4">
-                                </div>
-                            </div>
-                            <div class="container-1">
-                                <div class="spline-options">
-                                    <div title="Minimum Angle Displacement (in degrees) to be considered a cutting point between curves">
-                                        Splice Threshold <span class="prop">(More accurate)</span>
+            
+                                <div>
+                                    <div>
+                                        <button class="button" id="clustering-cutout" title="Shapes disjoint with others">Cutout</button>
+                                        <button class="button" id="clustering-stacked" title="Stack shapes on top of another">Stacked</button>
                                     </div>
                                 </div>
-                                <div id="splicevalue" class="spline-options">
-                                    45
+                                <div class="container-1">
+                                    <div>
+                                        <div title="Discard patches small than X px in size">
+                                            Filter Speckle <span class="prop">(Cleaner)</span>
+                                        </div>
+                                    </div>
+                                    <div id="filterspecklevalue">
+                                        4
+                                    </div>
+                                    <div>
+                                        <input id="filterspeckle" type="range" min="1" max="16" step="1" value="4">
+                                    </div>
                                 </div>
-                                <div class="spline-options">
-                                    <input id="splice" type="range" min="0" max="180" step="1" value="45">
+                                <div class="container-1">
+                                    <div class="clustering-color-options">
+                                        <div title="Number of significant bits to use in a RGB channel">
+                                            Color Precision <span class="prop">(More accurate)</span>
+                                        </div>
+                                    </div>
+                                    <div id="colorprecisionvalue" class="clustering-color-options">
+                                        6
+                                    </div>
+                                    <div class="clustering-color-options">
+                                        <input id="colorprecision" type="range" min="1" max="8" step="1" value="6">
+                                    </div>
+                                </div>
+                                <div class="container-1">
+                                    <div class="clustering-color-options">
+                                        <div title="Color difference between gradient layers">
+                                            Gradient Step <span class="prop">(Less layers)</span>
+                                        </div>
+                                    </div>
+                                    <div id="layerdifferencevalue" class="clustering-color-options">
+                                        16
+                                    </div>
+                                    <div class="clustering-color-options">
+                                        <input id="layerdifference" type="range" min="0" max="255" step="1" value="16">
+                                    </div>
                                 </div>
                             </div>
-                            <div class="container-1">
         
-                                <div class="spline-options">
-                                    <div title="Number of decimal places used in svg path string">
-                                        Path Precision <span class="prop">(More digits)</span>
+                            <div class="options-right">
+                                <div>
+                                    <div title="Algorithm for converting clusters to shapes">
+                                        Curve Fitting
                                     </div>
                                 </div>
-                                <div id="pathprecisionvalue" class="spline-options">
-                                    8
+            
+                                <div>
+                                    <div>
+                                        <button class="button" id="none" title="Exact cluster boundary">Pixel</button>
+                                        <button class="button" id="polygon" title="Simplify to Polygon">Polygon</button>
+                                        <button class="button" id="spline" class="selected" title="Smooth and Curve-fit">Spline</button>
+                                    </div>
                                 </div>
-                                <div class="spline-options">
-                                    <input id="pathprecision" class="uk-range" type="range" min="0" max="16" step="1" value="8">
+                                
+                                <div class="container-1">
+                                    <div class="spline-options">
+                                        <div title="Minimum Momentary Angle (in degrees) to be considered a corner (to be kept after smoothing)">
+                                            Corner Threshold <span class="prop">(Smoother)</span>
+                                        </div>
+                                    </div>
+                                    <div id="cornervalue" class="spline-options">
+                                        60
+                                    </div>
+                                    <div class="spline-options">
+                                        <input id="corner" type="range" min="0" max="180" step="1" value="60">
+                                    </div>
                                 </div>
-        
+                                <div class="container-1">
+                                    <div class="spline-options">
+                                        <div title="Perform Iterative Subdivide Smooth until all segments are shorter than this length">
+                                            Segment Length <span class="prop">(More coarse)</span>
+                                        </div>
+                                    </div>
+                                    <div id="lengthvalue" class="spline-options">
+                                        4
+                                    </div>
+                                    <div class="spline-options">
+                                        <input id="length" type="range" min="3.5" max="10" step="0.5" value="4">
+                                    </div>
+                                </div>
+                                <div class="container-1">
+                                    <div class="spline-options">
+                                        <div title="Minimum Angle Displacement (in degrees) to be considered a cutting point between curves">
+                                            Splice Threshold <span class="prop">(More accurate)</span>
+                                        </div>
+                                    </div>
+                                    <div id="splicevalue" class="spline-options">
+                                        45
+                                    </div>
+                                    <div class="spline-options">
+                                        <input id="splice" type="range" min="0" max="180" step="1" value="45">
+                                    </div>
+                                </div>
+                                <div class="container-1">
+            
+                                    <div class="spline-options">
+                                        <div title="Number of decimal places used in svg path string">
+                                            Path Precision <span class="prop">(More digits)</span>
+                                        </div>
+                                    </div>
+                                    <div id="pathprecisionvalue" class="spline-options">
+                                        8
+                                    </div>
+                                    <div class="spline-options">
+                                        <input id="pathprecision" class="uk-range" type="range" min="0" max="16" step="1" value="8">
+                                    </div>
+            
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="example-container">
+                        <div class="example">
+                            <div class="contents">
+                                <h2>How To Use It ??</h2>
+                                <h3>Installing Sketchpy</h3>
+                            </div>
+                            <div class="box">
+                                <p class="text">pip install sketchpy</p>
+                                <button class="package-button" type="button">
+                                <img src="https://s2.svgbox.net/octicons.svg?ic=copy" id="cpy-p" alt="Icon">
+                                <img src="https://s2.svgbox.net/octicons.svg?ic=check-circle-bold" id = "done-p" alt="done">
+                                </button>
+                            </div>
+                            <h3>Sample Code</h3>
+                            <div class="sample-box">
+                                <p class="code-text">from sketchpy import canvas<br>
+                                    obj = canvas.color_sketch_from_svg("file path of svg file") <br>
+                                    obj.draw()
+                                </p>
+                                <button class="code-button" type="button">
+                                <img src="https://s2.svgbox.net/octicons.svg?ic=copy" id="cpy" alt="Icon">
+                                <img src="https://s2.svgbox.net/octicons.svg?ic=check-circle-bold" id = "done" alt="done">
+                                </button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <br>
-        <br>
-        
-        <div class="example">
-            <h2>How To Use It ??</h2>
-            <h3>Installing Sketchpy</h3>
-            <div class="box">
-                <p class="text">pip install sketchpy</p>
-                <button class="package-button" type="button">
-                  <img src="https://s2.svgbox.net/octicons.svg?ic=copy" id="cpy-p" alt="Icon">
-                  <img src="https://s2.svgbox.net/octicons.svg?ic=check-circle-bold" id = "done-p" alt="done">
-                </button>
-              </div>
-            <h3>Sample Code</h3>
-            <div class="sample-box">
-                <p class="code-text">from sketchpy import canvas<br>
-                    obj = canvas.color_sketch_from_svg("file path of svg file") <br>
-                    obj.draw()
-                </p>
-                <button class="code-button" type="button">
-                  <img src="https://s2.svgbox.net/octicons.svg?ic=copy" id="cpy" alt="Icon">
-                  <img src="https://s2.svgbox.net/octicons.svg?ic=check-circle-bold" id = "done" alt="done">
-                </button>
-              </div>
-        </div>
+            <br>
+
+            <div class="example-container-phone">
+                <div class="example">
+                    <div class="contents">
+                        <h2>How To Use It ??</h2>
+                        <h3>Installing Sketchpy</h3>
+                    </div>
+                    <div class="box">
+                        <p class="text">pip install sketchpy</p>
+                        <button class="package-button" type="button">
+                        <img src="https://s2.svgbox.net/octicons.svg?ic=copy" id="cpy-p" alt="Icon">
+                        <img src="https://s2.svgbox.net/octicons.svg?ic=check-circle-bold" id = "done-p" alt="done">
+                        </button>
+                    </div>
+                    <h3>Sample Code</h3>
+                    <div class="sample-box">
+                        <p class="code-text">from sketchpy import canvas<br>
+                            obj = canvas.color_sketch_from_svg("file path of svg file") <br>
+                            obj.draw()
+                        </p>
+                        <button class="code-button" type="button">
+                        <img src="https://s2.svgbox.net/octicons.svg?ic=copy" id="cpy" alt="Icon">
+                        <img src="https://s2.svgbox.net/octicons.svg?ic=check-circle-bold" id = "done" alt="done">
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
 
 
-        
+       
         
         <script src="./bootstrap.js"></script>
         <script src="./code.js"></script>
