@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Poppins:wght@100;200;300;400;500&display=swap');
+.example{
+    color: white;
+
+}
+
+h3, h2{
+    text-align: center;
+}
+
+
+.box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 400;
+    width: 300px;
+    height: 40px;
+    margin: 50px auto;
+    background-color: rgba(8, 8, 8, 0.7);
+    padding: 0 20px;
+    border-radius: 5px;
+    color: rgb(252, 247, 247);
+    font-family:'Poppins';
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+}
+
+.sample-box{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 600px;
+    height: 100px;
+    margin: 50px auto;
+    background-color: rgba(8, 8, 8, 0.7);
+    padding: 0 20px;
+    border-radius: 5px;
+    color: rgb(252, 247, 247);
+    font-family:'Poppins';
+    font-weight: 400;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+}
+
+
+
+.code-button {
+padding: 0;
+background-color: transparent;
+border: none;
+cursor: pointer
+}
+
+.code-button:focus {
+outline: none;
+}
+
+.code-button img {
+width: 25px;
+}
+
+
+
+.package-button {
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    cursor: pointer
+    }
+    
+    .package-button:focus {
+    outline: none;
+    }
+    
+    .package-button img {
+    width: 25px;
+    }
+
+
+
+#done{
+    visibility: hidden;
+}
+
+#done-p{
+    visibility: hidden;
+}
